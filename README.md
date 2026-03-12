@@ -1,52 +1,76 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center">
-  <h1>WORK IN PROGRESS</h1>
-  <br>
   <img alt="KDE Connect applet on COSMIC desktop environment" src="https://raw.githubusercontent.com/hepp3n/kdeconnect/refs/heads/master/resources/screenshots/applet.png" />
+  <h1>COSMIC Ext Connect</h1>
+  <h4>⚠️ WORK IN PROGRESS ⚠️</h4>
+  <br>
 </div>
 
-# Installing from [COSMIC Flatpak Repository](https://github.com/pop-os/cosmic-flatpak)
+## How to install
 
-Add remote: `flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo`
+The best way to install the applet is through the [COSMIC Flatpak Repository](https://github.com/pop-os/cosmic-flatpak).
 
-Install applet: `flatpak install --user io.github.hepp3n.kdeconnect`
+If you're using COSMIC, it is likely you already have the repository set up.
+- Open the COSMIC Store
+- Search for "KDE Connect"
+- Click on install
 
-# Testing on COSMIC Desktop
+In other cases, you can do it manually through the terminal.
+- Add the remote (repository):
+  ```
+  flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
+  ```
 
-For testing COSMIC desktop applet, you can build it with help of justfile.
+- Install the applet:
+  ```
+  flatpak install --user io.github.hepp3n.kdeconnect
+  ```
 
-# Cloning repository
+## How to build
 
-`git clone https://github.com/hepp3n/kdeconnect.git`
+To test the applet, you can manually build it with the help of a justfile.
 
-# Entering directory
+Clone the repository
+```
+git clone https://github.com/hepp3n/kdeconnect.git
+```
 
-`cd kdeconnect`
+Enter the directory
+```
+cd kdeconnect
+```
 
-# Building
+Build
+```
+just build
+```
 
-`just build`
+Install
+```
+just install
+```
 
-# Installing
+Enable KDE Connect service
+```
+just enable-service
+```
 
-`just install`
+> [!NOTE]
+> May need to reboot to get applet to show on panel
 
-# Enable kdeconnect-service
+Uninstall
+```
+just uninstall
+```
 
-`just enable-service`
+> [!IMPORTANT]
+> Make sure you have [rustup.rs](https://rustup.rs) installed on your system.<br>
+> You might also need the `libxkbcommon-dev` dependency. If it won't build, please create an issue.
 
-**May need to reboot to get applet to show on panel**
+## Building a Flatpak
 
-# Uninstalling
+You can also build the applet as a flatpak package. First, install `flatpak-builder` and then run the following command:
 
-`just uninstall`
-
-Make sure you have [rustup.rs](https://rustup.rs) installed on your system.
-
-You might need also `libxkbcommon-dev` dependency. If it won't build, please create an issue.
-
-# Building as Flatpak
-
-You can also build this applet as flatpak package. You need to install `flatpak-builder` and then run this command:
-
-`flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir io.github.hepp3n.kdeconnect.json`
+```
+flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir io.github.hepp3n.kdeconnect.json
+```
