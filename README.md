@@ -1,7 +1,7 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center">
   <img alt="KDE Connect applet on COSMIC desktop environment" src="https://raw.githubusercontent.com/hepp3n/kdeconnect/refs/heads/master/resources/screenshots/applet.png" />
-  <h1>COSMIC Ext Connect</h1>
+  <h1>COSMIC EXT Connect</h1>
   <h4>⚠️ WORK IN PROGRESS ⚠️</h4>
   <br>
 </div>
@@ -16,15 +16,24 @@ The best way to install the applet is through the [COSMIC Flatpak Repository](ht
 - Click on install
 
 #### In other cases, you can do it manually through the terminal
-- Add the remote (repository):
+- Add the remote (repository)
   ```
   flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
   ```
 
-- Install the applet:
+- Install the applet
   ```
   flatpak install --user io.github.hepp3n.kdeconnect
   ```
+
+## How to add the applet to the panel or dock
+
+Once you have it installed, adding it is easy.
+
+- Open COSMIC Settings
+- Navigate to Desktop --> Panel/Dock --> Configure panel/dock applets
+- Click on Add applet
+- Add COSMIC EXT Connect
 
 ## How to build
 
@@ -67,9 +76,9 @@ just enable-service
 just uninstall
 ```
 
-## Building a Flatpak
+### Building a Flatpak
 
-You can also build the applet manually as a flatpak package
+You can also build a Flatpak version of the applet manually.
 
 > [!IMPORTANT]
 > Make sure you have `flatpak-builder` installed on your system.
